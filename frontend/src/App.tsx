@@ -41,7 +41,7 @@ function App() {
             <div className="flex items-center justify-between">
               <div className="flex items-center justify-center flex-1">
                 <BookOpen className="h-8 w-8 text-primary-600 mr-3" />
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Hedwig</h1>
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Hedwig an opensearch engine for research</h1>
               </div>
               <div className="flex items-center">
                 <ThemeToggle />

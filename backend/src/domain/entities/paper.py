@@ -1,3 +1,4 @@
+
 """
 Paper entity - Core domain model
 """
