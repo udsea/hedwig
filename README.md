@@ -90,6 +90,8 @@ hedwig/
 │   └── package.json
 └── README.md
 ```
+## Architecture Diagram
+![SVG Image](hedwig_architecture.svg)
 
 ## 🔧 Features
 
