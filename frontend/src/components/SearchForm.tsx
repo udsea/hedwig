@@ -85,17 +85,17 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch, isLoading }) => {
 
         {/* Advanced Options */}
         {showAdvanced && (
-          <div className="bg-gray-50 rounded-lg p-6 space-y-4">
+          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Max Results */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Max Results
                 </label>
                 <select
                   value={maxResults}
                   onChange={(e) => setMaxResults(Number(e.target.value))}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                   {[5, 10, 15, 20].map(num => (
                     <option key={num} value={num}>{num}</option>
@@ -105,13 +105,13 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch, isLoading }) => {
 
               {/* Sort By */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Sort By
                 </label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                   {SORT_OPTIONS.map(option => (
                     <option key={option.value} value={option.value}>
@@ -124,7 +124,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch, isLoading }) => {
 
             {/* Sources */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Sources
               </label>
               <div className="flex flex-wrap gap-2">
@@ -136,7 +136,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch, isLoading }) => {
                     className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                       selectedSources.includes(source.value)
                         ? 'bg-primary-600 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
                     }`}
                   >
                     {source.label}
@@ -160,15 +160,15 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch, isLoading }) => {
       </form>
 
       {/* Example Queries */}
-      {!query && (
+              {!query && (
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-600 mb-3">Try searching for:</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Try searching for:</p>
           <div className="flex flex-wrap justify-center gap-2">
             {exampleQueries.map((example, index) => (
               <button
                 key={index}
                 onClick={() => setQuery(example)}
-                className="text-xs px-3 py-1 bg-gray-100 text-gray-600 rounded-full hover:bg-gray-200 transition-colors"
+                className="text-xs px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
               >
                 {example}
               </button>

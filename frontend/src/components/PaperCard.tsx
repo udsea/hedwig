@@ -57,7 +57,7 @@ const PaperCard: React.FC<PaperCardProps> = ({ paper }) => {
       </div>
 
       {/* Title */}
-      <h3 className="text-xl font-semibold text-gray-900 mb-3 leading-tight">
+      <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 leading-tight">
         <a
           href={paper.url}
           target="_blank"
@@ -69,7 +69,7 @@ const PaperCard: React.FC<PaperCardProps> = ({ paper }) => {
       </h3>
 
       {/* Authors and Date */}
-      <div className="flex items-center gap-4 mb-3 text-sm text-gray-600">
+      <div className="flex items-center gap-4 mb-3 text-sm text-gray-600 dark:text-gray-400">
         <div className="flex items-center gap-1">
           <Users size={14} />
           <span>{paper.formatted_authors}</span>
@@ -81,19 +81,19 @@ const PaperCard: React.FC<PaperCardProps> = ({ paper }) => {
       </div>
 
       {/* Abstract */}
-      <p className="text-gray-700 mb-4 leading-relaxed">
+      <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
         {truncateAbstract(paper.abstract)}
       </p>
 
       {/* Categories */}
       {paper.categories && paper.categories.length > 0 && (
         <div className="flex items-start gap-2 mb-4">
-          <Tag size={14} className="text-gray-400 mt-1 flex-shrink-0" />
+          <Tag size={14} className="text-gray-400 dark:text-gray-500 mt-1 flex-shrink-0" />
           <div className="flex flex-wrap gap-1">
             {paper.categories.slice(0, 5).map((category, index) => (
               <span
                 key={index}
-                className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md"
+                className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 text-xs rounded-md"
               >
                 {category}
               </span>
@@ -103,8 +103,8 @@ const PaperCard: React.FC<PaperCardProps> = ({ paper }) => {
       )}
 
       {/* Footer */}
-      <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-        <div className="text-xs text-gray-500">
+      <div className="flex justify-between items-center pt-4 border-t border-gray-100 dark:border-gray-700">
+        <div className="text-xs text-gray-500 dark:text-gray-400">
           {paper.doi && (
             <span>DOI: {paper.doi}</span>
           )}

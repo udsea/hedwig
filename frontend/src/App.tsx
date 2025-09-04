@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { BookOpen } from 'lucide-react';
 import SearchForm from './components/SearchForm';
 import SearchResults from './components/SearchResults';
+import ThemeToggle from './components/ThemeToggle';
+import { ThemeProvider } from './contexts/ThemeContext';
 import { searchPapers } from './services/api';
 import { SearchRequest, SearchResponse } from './types/api';
 
@@ -31,19 +33,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-center">
-            <BookOpen className="h-8 w-8 text-primary-600 mr-3" />
-            <h1 className="text-3xl font-bold text-gray-900">Hedwig</h1>
+    <ThemeProvider>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        {/* Header */}
+        <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center justify-center flex-1">
+                <BookOpen className="h-8 w-8 text-primary-600 mr-3" />
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Hedwig</h1>
+              </div>
+              <div className="flex items-center">
+                <ThemeToggle />
+              </div>
+            </div>
+            <p className="text-center text-gray-600 dark:text-gray-400 mt-2">
+              Search for research papers across arXiv, OpenAlex, and Crossref
+            </p>
           </div>
-          <p className="text-center text-gray-600 mt-2">
-            Search for research papers across arXiv, OpenAlex, and Crossref
-          </p>
-        </div>
-      </header>
+        </header>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -64,20 +72,21 @@ function App() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="text-center text-gray-600">
-            <p className="mb-2">
-              Built with ❤️ for all research needs
-            </p>
-            <p className="text-sm">
-              Data sources: arXiv, OpenAlex, and Crossref APIs
-            </p>
+        {/* Footer */}
+        <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="text-center text-gray-600 dark:text-gray-400">
+              <p className="mb-2">
+                Built with ❤️ for all research needs
+              </p>
+              <p className="text-sm">
+                Data sources: arXiv, OpenAlex, and Crossref APIs
+              </p>
+            </div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </ThemeProvider>
   );
 }
 

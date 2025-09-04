@@ -21,10 +21,10 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results, error, isLoading
 
   if (error) {
     return (
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+      <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 text-center">
         <AlertCircle className="mx-auto h-12 w-12 text-red-500 mb-4" />
-        <h3 className="text-lg font-medium text-red-800 mb-2">Search Error</h3>
-        <p className="text-red-600">{error}</p>
+        <h3 className="text-lg font-medium text-red-800 dark:text-red-400 mb-2">Search Error</h3>
+        <p className="text-red-600 dark:text-red-400">{error}</p>
       </div>
     );
   }
@@ -35,13 +35,13 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results, error, isLoading
 
   if (results.total_results === 0) {
     return (
-      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-8 text-center">
+      <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-8 text-center">
         <AlertCircle className="mx-auto h-12 w-12 text-yellow-500 mb-4" />
-        <h3 className="text-lg font-medium text-yellow-800 mb-2">No Results Found</h3>
-        <p className="text-yellow-600 mb-4">
+        <h3 className="text-lg font-medium text-yellow-800 dark:text-yellow-400 mb-2">No Results Found</h3>
+        <p className="text-yellow-600 dark:text-yellow-400 mb-4">
           No papers found for "{results.query}". Try different keywords or check your spelling.
         </p>
-        <div className="text-sm text-yellow-600">
+        <div className="text-sm text-yellow-600 dark:text-yellow-400">
           <p>Tips:</p>
           <ul className="list-disc list-inside mt-2 space-y-1">
             <li>Use broader terms (e.g., "machine learning" instead of "deep neural networks")</li>
@@ -66,38 +66,38 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results, error, isLoading
   return (
     <div className="space-y-6">
       {/* Results Summary */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
+      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
           Search Results for "{results.query}"
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
           <div className="text-center">
             <div className="text-2xl font-bold text-primary-600">{results.total_results}</div>
-            <div className="text-sm text-gray-600">Total Papers Found</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Total Papers Found</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-gray-700">
+            <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">
               {Object.keys(results.sources).length}
             </div>
-            <div className="text-sm text-gray-600">Sources Searched</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Sources Searched</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-gray-700">
+            <div className="text-2xl font-bold text-gray-700 dark:text-gray-300">
               {results.search_params.sort_by}
             </div>
-            <div className="text-sm text-gray-600">Sorted By</div>
+            <div className="text-sm text-gray-600 dark:text-gray-400">Sorted By</div>
           </div>
         </div>
 
         {/* Source Status */}
-        <div className="border-t pt-4">
-          <h3 className="text-sm font-medium text-gray-700 mb-2">Source Status:</h3>
+        <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Source Status:</h3>
           <div className="flex flex-wrap gap-4">
             {Object.entries(results.sources).map(([sourceName, sourceData]) => (
               <div key={sourceName} className="flex items-center gap-2">
                 {getSourceStatus(sourceName)}
-                <span className="text-sm text-gray-600 capitalize">
+                <span className="text-sm text-gray-600 dark:text-gray-400 capitalize">
                   {sourceName} ({sourceData.count} papers)
                 </span>
                 {sourceData.error && (
@@ -118,7 +118,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ results, error, isLoading
 
       {/* Load More Hint */}
       {results.total_results >= results.search_params.max_results && (
-        <div className="text-center py-6 text-gray-600">
+        <div className="text-center py-6 text-gray-600 dark:text-gray-400">
           <p>Showing top {results.search_params.max_results} results.</p>
           <p className="text-sm">Increase max results in advanced options to see more.</p>
         </div>
