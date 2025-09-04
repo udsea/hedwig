@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BookOpen } from 'lucide-react';
 import SearchForm from './components/SearchForm';
 import SearchResults from './components/SearchResults';
@@ -69,7 +69,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center text-gray-600">
             <p className="mb-2">
-              Built with ❤️ using DDD principles and SOLID design patterns
+              Built with ❤️ for all research needs
             </p>
             <p className="text-sm">
               Data sources: arXiv, OpenAlex, and Crossref APIs

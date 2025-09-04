@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Settings, X } from 'lucide-react';
+import { Search, Settings } from 'lucide-react';
 import { SearchRequest, SortOption, SORT_OPTIONS, SOURCE_OPTIONS } from '../types/api';
 
 interface SearchFormProps {

@@ -1,6 +1,6 @@
 # Hedwig - Research Paper Search Tool
 
-A minimal, modern tool for searching research papers across arXiv, OpenAlex, and Crossref. Built with clean architecture principles and modern web technologies.
+     Built with clean architecture principles and modern web technologies.
 
 ## 🔍 What it does
 
